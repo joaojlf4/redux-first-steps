@@ -1,0 +1,7 @@
+Redux (prática): 
+Um componente vai em volta do App.js, que passa uma propriedade (prop) a todos os componentes da aplicação chamada dispatch. Dispatch é uma função que recebe um objeto como parâmetro: a Action. 
+
+As actions, quando disparadas (através do dispatch), executam TODOS os reducers da aplicação, reducers são funções que retornam o estado incial ou alterado de algum componente. Como o reducer também é uma função, recebe dois parâmetros, o state e a action. O state se refere ao atual estado da aplicação, uma vez que não é possível referenciá-lo sem o uso de parâmetros (por ser variável). A action é o parâmetro passado ao dispatch, que contém o type (nomenclatura), e o payload, que pode ser qualquer objeto javascript, que posteriormente pode ser usado para ser incluso no estado (por exemplo, um item que vai ser adicionado ao array). 
+Como serão todos os reducer que serão disparados pra todas as actions, cabe ao reducer fazer a verifição de qual action lhe cabe tratar. O reducer deve ter suas verificações quanto ao type das actions para o tratamento dos dados e uma "verificação" default, que será o valor inicial do estado (como no useState(<estado inicial>)) ou o proprio parâmetro state. 
+
+Para utilizar o estado global é preciso, ao exportar o componente usar o connect. Quando uma action for disparada e, no connect for configurado a necessidade do estado referente a action disparada, o redux notificará e, no parâmetro do connect, passar as props do componente que está sendo exportado.
